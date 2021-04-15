@@ -8,16 +8,19 @@ let maxSize = 600;
 let myFont;
 let audio;
 let clicked = false;
+let platform;
 
 function preload() {
 	myFont = loadFont("fonts/Oi-Regular.ttf");
 	audio = loadSound("Dragon Fruit Master 2021.m4a");
+	platform = loadImage("platform.png");
 }
 
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight);
 
 	rectMode(CENTER);
+	imageMode(CENTER);
 	colorMode(HSB, 360, 100, 100);
 	strokeWeight(3);
 	noFill();
@@ -30,11 +33,13 @@ function draw() {
 	background(0, 0.1);
 
 	drawSquares(clicked);
-	drawRunway();
+	image(platform, width/2 - 6, height*3/4, 500, height*0.78)
+	// drawRunway();
 
 	fontHueCounter += 0.01;
 	let newFontHue = fontHue + sin(fontHueCounter) * 35;
 	fill(newFontHue, 80, 100);
+	noStroke();
 	text("Dragon Fruit", width/2, height/4)
 }
 
@@ -75,16 +80,16 @@ function drawRunway() {
 	fill(0, 0, 70, 0.95);
 	noStroke();
 	beginShape();
-	vertex(width/2 - 150, height);
 	vertex(width/2 - 150, height - 30);
+	vertex(width/2 - 150, height - 60);
 	vertex(width/2 - 20, height/2);
 	vertex(width/2 + 20, height/2);
+	vertex(width/2 + 150, height - 60);
 	vertex(width/2 + 150, height - 30);
-	vertex(width/2 + 150, height);
 	endShape();
 
 	fill(0, 0, 50);
-	rect(width/2, height - 15, 300, 30);
+	rect(width/2, height - 45, 300, 30);
 }
 
 
