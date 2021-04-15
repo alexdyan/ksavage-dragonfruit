@@ -11,7 +11,7 @@ let clicked = false;
 let platform;
 
 function preload() {
-	myFont = loadFont("fonts/Oi-Regular.ttf");
+	myFont = loadFont("fonts/TrainOne-Regular.ttf");
 	audio = loadSound("Dragon Fruit Master 2021.m4a");
 	platform = loadImage("platform.png");
 }
@@ -26,7 +26,7 @@ function setup() {
 	noFill();
 	textFont(myFont);
 	textAlign(CENTER);
-	textSize(56);
+	textSize(64);
 }
 
 function draw() {
